@@ -2,9 +2,10 @@
 # visit http://127.0.0.1:8050/ in your web browser.
 
 from dash import Dash, html, dcc
+import os
 import plotly.express as px
 import pandas as pd
-
+PORT = os.getenv('PORT', 8080)
 app = Dash(__name__)
 
 # assume you have a "long-form" data frame
@@ -31,4 +32,4 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=PORT)
